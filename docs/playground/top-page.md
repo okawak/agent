@@ -43,7 +43,7 @@
 - 生成される HTML / ビルド成果物にクレデンシャルやサーバー専用モジュールが含まれていないことを確認する。
 
 ## 付記
-- UI ライブラリの選定理由比較（shadcn/ui vs MUI）は別途 Decision Record を追加し、本ページではリンクのみ提示する想定。
+- UI ライブラリの選定理由比較（shadcn/ui vs MUI）は別途 Decision Record（docs/decisions/2025-11-03-ui-library.md）に記録する。
 - 今後の各 Playground ページ追加時は本ページの構造を踏襲し、docs/ 配下に要件定義を順次追加する。
 
 ## 実装メモ（2025-11-03）
