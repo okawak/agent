@@ -30,12 +30,6 @@ const statusOrder: PlaygroundItemStatus[] = [
   "planned",
 ];
 
-const statusMessages: Record<PlaygroundItemStatus, string> = {
-  available: "アクセス可能",
-  "in-progress": "実装中",
-  planned: "近日追加",
-};
-
 const policyLinks = [
   {
     label: "開発ポリシー (AGENTS.md)",
@@ -197,33 +191,36 @@ export default function PlaygroundPage() {
               </div>
 
               <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                {section.items.map((item) => (
-                  <Card
-                    key={item.id}
-                    className={cn(
-                      "h-full border-white/10 bg-slate-900/60 transition",
-                      item.status === "available"
-                        ? "hover:border-emerald-400/60 hover:bg-slate-900/80"
-                        : "opacity-90",
-                    )}
-                  >
-                    <CardHeader className="space-y-4">
-                      <StatusBadge status={item.status} />
-                      <div className="space-y-2">
-                        <CardTitle>{item.title}</CardTitle>
-                        <CardDescription>{item.description}</CardDescription>
-                      </div>
-                    </CardHeader>
-                    <CardFooter className="text-xs text-slate-400">
-                      <span>{statusMessages[item.status]}</span>
-                      {item.status === "available" && item.href ? (
-                        <Button variant="ghost" size="sm" asChild>
-                          <Link href={item.href}>開く →</Link>
-                        </Button>
-                      ) : null}
-                    </CardFooter>
-                  </Card>
-                ))}
+                {section.items.map((item) => {
+                  const meta = playgroundStatusMeta[item.status];
+                  return (
+                    <Card
+                      key={item.id}
+                      className={cn(
+                        "h-full border-white/10 bg-slate-900/60 transition",
+                        item.status === "available"
+                          ? "hover:border-emerald-400/60 hover:bg-slate-900/80"
+                          : "opacity-90",
+                      )}
+                    >
+                      <CardHeader className="space-y-4">
+                        <StatusBadge status={item.status} />
+                        <div className="space-y-2">
+                          <CardTitle>{item.title}</CardTitle>
+                          <CardDescription>{item.description}</CardDescription>
+                        </div>
+                      </CardHeader>
+                      <CardFooter className="text-xs text-slate-400">
+                        <span>{meta.label}</span>
+                        {item.status === "available" && item.href ? (
+                          <Button variant="ghost" size="sm" asChild>
+                            <Link href={item.href}>開く →</Link>
+                          </Button>
+                        ) : null}
+                      </CardFooter>
+                    </Card>
+                  );
+                })}
               </div>
             </section>
           ))}
