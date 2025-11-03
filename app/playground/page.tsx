@@ -53,7 +53,7 @@ function StatusLegend() {
             <span
               aria-hidden="true"
               className={cn(
-                "h-2.5 w-2.5 flex-shrink-0 rounded-full",
+                "h-2.5 w-2.5 shrink-0 rounded-full",
                 meta.dotClassName,
               )}
             />
@@ -86,7 +86,7 @@ function StatusBadge({ status }: { status: PlaygroundItemStatus }) {
 export default function PlaygroundPage() {
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-slate-950 text-slate-50">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.28)_0,_rgba(15,23,42,0.95)_55%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.28)_0,rgba(15,23,42,0.95)_55%)]" />
       <div className="absolute inset-y-0 left-1/2 -z-10 hidden w-[640px] -translate-x-1/2 rounded-full bg-gradient-to-b from-emerald-500/10 via-cyan-500/10 to-transparent blur-3xl lg:block" />
 
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6 py-16 sm:px-10 lg:px-16 lg:py-24">
