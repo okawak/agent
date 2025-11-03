@@ -12,6 +12,7 @@
 - Bedrock モデル ID、リージョンなどは環境変数から注入され、`.env` が未設定の場合は起動時に zod バリデーションで失敗する。
 - レート制限や入力制限（文字数上限）の基本ポリシーを設け、docs へリンクを提示する。
 - UI は shadcn/ui コンポーネントを活用し、Playground トップページとデザインを揃える。
+- Playground トップページに「チャット（ベーシック）」セクションを追加し、概要と `/playground/chat/basic` へのリンクを表示する。
 
 ## 影響範囲
 - **UI**: 新規ページ `app/playground/chat/basic/page.tsx` 追加、共通レイアウトとの整合確認。
