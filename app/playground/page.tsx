@@ -16,6 +16,7 @@ import {
   type PlaygroundItemStatus,
   playgroundSections,
   playgroundStatusMeta,
+  playgroundStatusOrder,
 } from "./data";
 
 export const metadata: Metadata = {
@@ -23,12 +24,6 @@ export const metadata: Metadata = {
   description:
     "Mastra と Amazon Bedrock の機能検証ページへのハブ。サーバー専用ツール運用と UI 体験を整理したトップページ。",
 };
-
-const statusOrder: PlaygroundItemStatus[] = [
-  "available",
-  "in-progress",
-  "planned",
-];
 
 const policyLinks = [
   {
@@ -48,7 +43,7 @@ const policyLinks = [
 function StatusLegend() {
   return (
     <dl className="grid gap-3 sm:grid-cols-3">
-      {statusOrder.map((status) => {
+      {playgroundStatusOrder.map((status) => {
         const meta = playgroundStatusMeta[status];
         return (
           <div

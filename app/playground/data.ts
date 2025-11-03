@@ -1,10 +1,12 @@
 import { z } from "zod";
 
-const playgroundItemStatusSchema = z.enum([
+export const playgroundStatusOrder = [
   "available",
   "in-progress",
   "planned",
-]);
+] as const;
+
+const playgroundItemStatusSchema = z.enum(playgroundStatusOrder);
 
 export type PlaygroundItemStatus = z.infer<typeof playgroundItemStatusSchema>;
 
