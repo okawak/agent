@@ -14,12 +14,6 @@ const playgroundItemSchema = z.object({
   description: z.string(),
   status: playgroundItemStatusSchema,
   href: z.string().optional(),
-  docsPath: z
-    .object({
-      label: z.string(),
-      href: z.string(),
-    })
-    .optional(),
 });
 
 const playgroundSectionSchema = z.object({
